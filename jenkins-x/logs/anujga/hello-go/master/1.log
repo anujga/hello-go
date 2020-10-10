@@ -1,0 +1,29 @@
+
+Showing logs for build [32manujga-hello-go-master-s5sv5-1[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1602350110.5434573,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32manujga-hello-go-master-s5sv5-1[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32manujga-hello-go-master-s5sv5-1[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
+
+Showing logs for build [32manujga-hello-go-master-s5sv5-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-anujga-hello-go-master-s5sv5-vw296[0m
+{"level":"info","ts":1602350154.5926116,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/******/hello-go.git @ v0.0.1 in path /workspace/source"}
+{"level":"warn","ts":1602350154.5926986,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1602350154.6241415,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32manujga-hello-go-master-s5sv5-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32manujga-hello-go-master-s5sv5-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32manujga-hello-go-master-s5sv5-1[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32manujga-hello-go-master-s5sv5-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/hello-go main.go
+
+Showing logs for build [32manujga-hello-go-master-s5sv5-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+error checking push permissions -- make sure you entered the correct tag name, and that you are authenticated correctly, and try again: checking push permission for "004245605591.dkr.ecr.ap-south-1.amazonaws.com/******/hello-go:0.0.1": POST https://004245605591.dkr.ecr.ap-south-1.amazonaws.com/v2/******/hello-go/blobs/uploads/: DENIED: User: arn:aws:sts::004245605591:assumed-role/staging-eks-GP1v2020092912062229350000000a/i-0de3a9eaa260c4dd9 is not authorized to perform: ecr:InitiateLayerUpload on resource: arn:aws:ecr:ap-south-1:004245605591:repository/******/hello-go
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
