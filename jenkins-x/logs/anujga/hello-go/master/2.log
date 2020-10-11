@@ -1,0 +1,83 @@
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1602433028.176561,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-anujga-hello-go-master-release-99n2r-ws2n7[0m
+{"level":"info","ts":1602433040.6091216,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/******/hello-go.git @ v0.0.2 in path /workspace/source"}
+{"level":"warn","ts":1602433040.6092224,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1602433040.6408465,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:792e35c96dc7bde87c651d475a884be888f1facb
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/hello-go pkg/main.go
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0020] Using dockerignore file: /workspace/source/.dockerignore 
+[36mINFO[0m[0020] No base image, nothing to extract            
+[36mINFO[0m[0020] Built cross stage deps: map[]                
+[36mINFO[0m[0020] No base image, nothing to extract            
+[36mINFO[0m[0020] Executing 0 build triggers                   
+[36mINFO[0m[0020] cmd: EXPOSE                                  
+[36mINFO[0m[0020] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0020] Checking for cached layer 004245605591.dkr.ecr.ap-south-1.amazonaws.com/todo/cache:c45ed344db9d837903baea007bb74c881ad043147374d79a25011c587540b43c... 
+[36mINFO[0m[0020] Using caching version of cmd: COPY ./bin/ /  
+[36mINFO[0m[0020] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0020] EXPOSE 8080                                  
+[36mINFO[0m[0020] cmd: EXPOSE                                  
+[36mINFO[0m[0020] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0020] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0020] ENTRYPOINT ["/hello-go"]                     
+[36mINFO[0m[0020] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0020] COPY ./bin/ /                                
+[36mINFO[0m[0020] Found cached layer, extracting to filesystem 
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/hello-go to an unshallow repository
+Generating change log from git ref 77069f385e6cf71212e664f662ff238f7763e755 => b65053aac1bb5c9cfcdc730a816e7c61b6f84e05
+Associating user ****** in users.jenkins.io with email ******rg2004@gmail.com to git GitProvider user with login ******-0 as emails match
+Adding label jenkins.io/git-github-userid=******-0 to user ****** in users.jenkins.io
+Finding issues in commit messages using git format
+WARNING: No release found for ******/hello-go and tag v0.0.2 so creating a new release
+Updated the release information at https://github.com/******/hello-go/releases/tag/v0.0.2
+generated: /workspace/source/charts/hello-go/templates/release.yaml
+Created Release hello-go-0-0-2 resource in namespace **
+Updating PipelineActivity ******-hello-go-master-2 with version 0.0.2
+Updated PipelineActivities ******-hello-go-master-2 with release notes URL: https://github.com/******/hello-go/releases/tag/v0.0.2
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file hello-go-0.0.2.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32manujga-hello-go-master-release-99n2r-2[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app hello-go version 0.0.2 to namespace **-staging
+Created Pull Request: https://github.com/******/environment-staging-eks-gp1v-staging/pull/1
+Added label updatebot to Pull Request https://github.com/******/environment-staging-eks-gp1v-staging/pull/1
+got git provider status pending from PR https://github.com/******/environment-staging-eks-gp1v-staging/pull/1
+got git provider status pending from PR https://github.com/******/environment-staging-eks-gp1v-staging/pull/1
+got git provider status pending from PR https://github.com/******/environment-staging-eks-gp1v-staging/pull/1
+Pull Request https://github.com/******/environment-staging-eks-gp1v-staging/pull/1 is merged at sha 1b8c04824c88035a3c884939bb5cff91588d715b
+Pull Request merged but we are not waiting for the update pipeline to complete!
+WARNING: Could not find the service URL in namespace **-staging for names hello-go, **-hello-go, **-staging-hello-go
