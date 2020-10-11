@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: draft
-  tag: dev
+  repository: 004245605591.dkr.ecr.ap-south-1.amazonaws.com/anujga/hello-go
+  tag: 0.0.2
   pullPolicy: Always
 
 # define environment variables here as a map of key: value
