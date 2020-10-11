@@ -66,4 +66,4 @@ watch:
 	reflex -r "\.go$" -R "vendor.*" make skaffold-run
 
 skaffold-run: build
-	skaffold run -p dev
+	skaffold run -p dev --tail

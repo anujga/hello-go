@@ -2,7 +2,7 @@ apiVersion: skaffold/v1beta2
 kind: Config
 build:
   artifacts:
-  - image: anujga/hello-go
+  - image: hello-go
     context: .
     docker: {}
   tagPolicy:
