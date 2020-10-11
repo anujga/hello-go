@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   repository: draft
   tag: dev
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 # define environment variables here as a map of key: value
 env:
@@ -79,7 +79,7 @@ ingress:
 # values we use from the `jx-requirements.yml` file if we are using helmfile and helm 3
 jxRequirements:
   ingress:
-    domain: ""
+    domain: "hello-go.65.0.43.84.nip.io"
     externalDNS: false
     namespaceSubDomain: -jx.
     tls:

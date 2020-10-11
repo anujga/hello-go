@@ -2,10 +2,10 @@ SHELL := /bin/bash
 GO := GO15VENDOREXPERIMENT=1 go
 NAME := hello-go
 OS := $(shell uname)
-MAIN_GO := main.go
+MAIN_GO := pkg/main.go
 ROOT_PACKAGE := $(GIT_PROVIDER)/$(ORG)/$(NAME)
 GO_VERSION := $(shell $(GO) version | sed -e 's/^[^0-9.]*\([0-9.]*\).*/\1/')
-PACKAGE_DIRS := $(shell $(GO) list ./... | grep -v /vendor/)
+PACKAGE_DIRS := './...'
 PKGS := $(shell go list ./... | grep -v /vendor | grep -v generated)
 PKGS := $(subst  :,_,$(PKGS))
 BUILDFLAGS := ''
@@ -66,4 +66,4 @@ watch:
 	reflex -r "\.go$" -R "vendor.*" make skaffold-run
 
 skaffold-run: build
-	skaffold run -p dev
+	skaffold run -p dev --tail
