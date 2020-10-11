@@ -1,0 +1,97 @@
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1602431955.1038938,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-anujga-hello-go-pr-1-pr-build-48zpr-l7bwz[0m
+{"level":"info","ts":1602431966.9922516,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/******/hello-go.git @ master in path /workspace/source"}
+{"level":"warn","ts":1602431966.9923568,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1602431967.024036,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:da5c00f71aa2b7affe064ec5289d8ad5f5ebfc47,1:960fff5a9c385849c28ca5a64238b4b1179d8ed4
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 960fff5a9c385849c28ca5a64238b4b1179d8ed4: da5c00f71aa2b7affe064ec5289d8ad5f5ebfc47:
+DEBUG: ran git fetch --unshallow origin 960fff5a9c385849c28ca5a64238b4b1179d8ed4: da5c00f71aa2b7affe064ec5289d8ad5f5ebfc47: in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard da5c00f71aa2b7affe064ec5289d8ad5f5ebfc47
+DEBUG: ran git reset --hard da5c00f71aa2b7affe064ec5289d8ad5f5ebfc47 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git merge 960fff5a9c385849c28ca5a64238b4b1179d8ed4
+DEBUG: ran git merge 960fff5a9c385849c28ca5a64238b4b1179d8ed4 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e da5c00f71aa2b7affe064ec5289d8ad5f5ebfc47..HEAD
+Merged SHA 960fff5a9c385849c28ca5a64238b4b1179d8ed4 with commit message 'Update values.yaml' into base branch master
+Merged SHA a8eeae29c3f278d752d1a0f93a02fa77b8188458 with commit message 'Update values.yaml' into base branch master
+Merged SHA b2ed5cea4a2826ed566833cf8d611d93f7ad79ba with commit message 'stash' into base branch master
+Merged SHA 25d87389d2bd881200741acde0c0dd4521f0c436 with commit message 'Update main.go' into base branch master
+Merged SHA ec6bf4f22b5e8cc7b52b33685285775a5c421563 with commit message 'local works' into base branch master
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/hello-go pkg/main.go
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0020] Using dockerignore file: /workspace/source/.dockerignore 
+[36mINFO[0m[0020] No base image, nothing to extract            
+[36mINFO[0m[0020] Built cross stage deps: map[]                
+[36mINFO[0m[0020] No base image, nothing to extract            
+[36mINFO[0m[0020] Executing 0 build triggers                   
+[36mINFO[0m[0020] cmd: EXPOSE                                  
+[36mINFO[0m[0020] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0020] Checking for cached layer 004245605591.dkr.ecr.ap-south-1.amazonaws.com/todo/cache:c45ed344db9d837903baea007bb74c881ad043147374d79a25011c587540b43c... 
+[36mINFO[0m[0020] No cached layer found for cmd COPY ./bin/ /  
+[36mINFO[0m[0020] Unpacking rootfs as cmd COPY ./bin/ / requires it. 
+[36mINFO[0m[0020] EXPOSE 8080                                  
+[36mINFO[0m[0020] cmd: EXPOSE                                  
+[36mINFO[0m[0020] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0020] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0020] ENTRYPOINT ["/hello-go"]                     
+[36mINFO[0m[0020] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0020] COPY ./bin/ /                                
+[36mINFO[0m[0020] Resolving 2 paths                            
+[36mINFO[0m[0020] Taking snapshot of files...                  
+[36mINFO[0m[0021] Pushing layer 004245605591.dkr.ecr.ap-south-1.amazonaws.com/todo/cache:c45ed344db9d837903baea007bb74c881ad043147374d79a25011c587540b43c to cache now 
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-5/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-5/" ../*/Chart.yaml
+sed -i -e "s|repository:.*|repository: 004245605591.dkr.ecr.ap-south-1.amazonaws.com\/******\/hello-go|" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-1-5/" values.yaml
+echo "  version: 0.0.0-SNAPSHOT-PR-1-5" >> requirements.yaml
+** step helm build
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+
+Showing logs for build [32manujga-hello-go-pr-1-pr-build-48zpr-5[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Creating a preview
+Found commit author match for: ****** with email address: ******rg2004@gmail.com
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    domain: 3.7.168.4.nip.io
+    exposer: Ingress
+    http: "true"
+preview:
+  image:
+    repository: 004245605591.dkr.ecr.ap-south-1.amazonaws.com/******/hello-go
+    tag: 0.0.0-SNAPSHOT-PR-1-5
+
+Updating PipelineActivities ******-hello-go-pr-1-5 which has status Running
+Preview application is now available at: http://hello-go-**.hello-go.65.0.43.84.nip.io
