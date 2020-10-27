@@ -79,7 +79,7 @@ ingress:
 # values we use from the `jx-requirements.yml` file if we are using helmfile and helm 3
 jxRequirements:
   ingress:
-    domain: "hello-go-65.0.43.84.nip.io"
+    domain: "hello-go.65.0.43.84.nip.io"
     externalDNS: false
     namespaceSubDomain: -jx.
     tls:
