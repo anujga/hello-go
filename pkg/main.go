@@ -17,7 +17,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		log.Printf("title: %s\n", title)
 	}
 
+<<<<<<< HEAD:main.go
 	fmt.Fprintf(w, "Morning:  "+title+"\n")
+=======
+	fmt.Fprintf(w, "Good Evening:  "+title+"\n")
+>>>>>>> fd39bbe8b9f85387b95684113c8815b66253f0f5:pkg/main.go
 }
 
 func main() {
